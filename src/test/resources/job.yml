@@ -1,0 +1,23 @@
+job:
+  name: demo
+  tasks:
+
+    init:
+      shell: echo init
+
+    left:
+      shell: echo left
+      repeat: 1 second
+      depends:
+        - init
+
+    right:
+      shell: echo right
+      depends:
+        - init
+
+    agg:
+      shell: echo agg
+      depends:
+        - left
+        - right
